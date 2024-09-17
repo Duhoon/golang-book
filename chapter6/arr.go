@@ -18,3 +18,32 @@ func arrExample() {
 	}
 	fmt.Println(total / float64(len(x)))
 }
+
+func copyExample() {
+	arr := [5]int{
+		56,
+		13,
+		44,
+		78,
+		91,
+	}
+
+	slice := arr[:]
+
+	sliceCopy := make([]int, len(arr))
+	copy(sliceCopy, slice)
+
+	fmt.Printf("arr pointer: %p\n", &arr)
+	fmt.Println(arr)
+	fmt.Printf("slice pointer: %p\n", &slice)
+	fmt.Println(slice)
+	fmt.Printf("copied slice pointer: %p\n", &sliceCopy)
+	fmt.Println(sliceCopy)
+
+	slice[0] = 1
+	sliceCopy[0] = 7
+
+	fmt.Println(arr)
+	fmt.Println(slice)
+	fmt.Println(sliceCopy)
+}
